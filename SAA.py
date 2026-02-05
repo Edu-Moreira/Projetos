@@ -267,5 +267,6 @@ aggg['Factor'] = (
 
 aggg['ETFs'] = aggg['Factor'].map(etf_factor_map)
 aggg['ETFs'].replace(np.nan,'AGG',inplace=True)
-print(aggg[['Location','Market Class']])
 
+
+concentracao_aggg = aggg.groupby('ETFs').sum()["Weight (%)"]
